@@ -14,6 +14,7 @@
     "@noble/hashes": "^2.0.1",
     "@scure/bip32": "^2.0.1",
     "@scure/bip39": "^2.0.1",
+    "@solana/web3.js": "^1.98.4",
     "@tailwindcss/vite": "^4.1.18",
     "argon2-browser": "^1.18.0",
     "buffer": "npm:Buffer@^0.0.0",
