@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Box, LayoutDashboard, TrendingUp, ArrowLeftRight, Wallet, Menu, X, ArrowLeft } from 'lucide-react';
+import { Box, LayoutDashboard, TrendingUp, ArrowLeftRight, Wallet, Menu, X, ArrowLeft, LogOut } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const navItems = [
   { icon: Wallet, label: 'Wallet', path: '/assets' },
-  { icon: Wallet, label: 'Swap', path: '/assets/swap' },
-  { icon: LayoutDashboard, label: 'Airdrop', path: '/airdrop' },
-  { icon: LayoutDashboard, label: 'Profile', path: '/profile' }
 
 ];
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
@@ -69,6 +69,20 @@ const Sidebar = () => {
             })}
           </ul>
         </nav>
+
+        {/* Delete Wallet Button (Desktop) */}
+        <div className="p-4 border-t border-white/5">
+          <button
+            onClick={() => {
+              localStorage.removeItem('wallet-storage');
+              navigate("/")
+            }}
+            className="w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 p-4 rounded-2xl flex items-center justify-center gap-2 transition-all group"
+          >
+            <LogOut className="w-5 h-5 text-red-400 group-hover:-translate-x-1 transition-transform" />
+            <span className="text-sm font-bold text-red-400">Delete Wallet</span>
+          </button>
+        </div>
 
       </aside>
 
@@ -129,12 +143,25 @@ const Sidebar = () => {
           </div>
         </div>
 
-        {/* Wallet Address */}
-        <div className="p-4 border-t border-white/5 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4FF00] to-[#14F195] flex items-center justify-center shrink-0">
-            <span className="text-black font-bold text-sm">0x</span>
+        {/* Wallet Address & Logout */}
+        <div className="p-4 border-t border-white/5 flex flex-col gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4FF00] to-[#14F195] flex items-center justify-center shrink-0">
+              <span className="text-black font-bold text-sm">0x</span>
+            </div>
+            <span className="text-sm text-white font-medium">0x8A...29b</span>
           </div>
-          <span className="text-sm text-white font-medium">0x8A...29b</span>
+
+          <button
+            onClick={() => {
+              localStorage.removeItem('wallet-storage');
+              window.location.href = '/';
+            }}
+            className="w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 p-3 rounded-xl flex items-center justify-center gap-2 transition-all group"
+          >
+            <LogOut className="w-4 h-4 text-red-400 group-hover:-translate-x-1 transition-transform" />
+            <span className="text-xs font-bold text-red-400">Delete Wallet</span>
+          </button>
         </div>
       </aside>
     </>
