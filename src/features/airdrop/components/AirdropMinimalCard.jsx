@@ -21,11 +21,14 @@ const AirdropMinimalCard = () => {
           Fund your testnet wallet instantly to build and test applications.
         </p>
 
-        <button className="w-full bg-black text-white font-extrabold py-5 rounded-[28px] text-[16px] hover:bg-gray-900 active:scale-95 transition-all shadow-2xl flex items-center justify-center gap-2">
-          Claim Airdrop
-        </button>
+        <a href="https://faucet.solana.com/">
+          <button className="w-full bg-black text-white font-extrabold py-5 rounded-[28px] text-[16px] hover:bg-gray-900 active:scale-95 transition-all shadow-2xl flex items-center justify-center gap-2">
+
+            Claim Airdrop
+          </button>
+        </a>
       </div>
-    </div>
+    </div >
   );
 };
 

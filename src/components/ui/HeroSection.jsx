@@ -34,14 +34,14 @@ const HeroSection = () => {
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 relative z-10">
         <Link
-          to="/login"
+          to="/seed-phrase"
           className="inline-flex items-center justify-center gap-2 bg-[#D4FF00] text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-[#bce600] transition-transform hover:scale-105 shadow-[0_10px_40px_rgba(212,255,0,0.2)]"
         >
           Get Started
           <ArrowRight className="w-5 h-5" />
         </Link>
         <a
-          href="https://github.com/uwallet"
+          href="https://github.com/uju09/uWallet-beta"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 bg-[#1A2920] text-white border border-white/10 px-8 py-4 rounded-full font-bold text-lg hover:bg-[#253d2c] transition-colors"
