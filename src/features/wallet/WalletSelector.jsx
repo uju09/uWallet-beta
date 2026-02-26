@@ -124,7 +124,7 @@ const WalletSelector = () => {
                     setCopiedIdx(wallet.idx);
                     setTimeout(() => setCopiedIdx(null), 1500);
                   }}
-                  className="w-7 h-7 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-[#14F195]/20 text-[#8FA396] hover:text-[#14F195] transition-all duration-200 cursor-pointer"
+                  className="w-7 h-7 rounded-lg flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-[#14F195]/20 text-[#8FA396] hover:text-[#14F195] transition-all duration-200 cursor-pointer"
                   title="Copy address"
                 >
                   {copiedIdx === wallet.idx ? (
@@ -138,7 +138,7 @@ const WalletSelector = () => {
                 {wallet.idx !== 1 && (
                   <span
                     onClick={(e) => { e.stopPropagation(); deleteWallet(wallet.idx); }}
-                    className="w-7 h-7 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-red-500/20 text-red-500 hover:text-red-400 transition-all duration-200 cursor-pointer"
+                    className="w-7 h-7 rounded-lg flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-red-500/20 text-red-500 hover:text-red-400 transition-all duration-200 cursor-pointer"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </span>

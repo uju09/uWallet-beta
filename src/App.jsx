@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { LandingPage, Dashboard, ProfilePage, AssetsPage, SwapPage } from './pages';
+import { LandingPage, Dashboard, ProfilePage, AssetsPage, SwapPage, AirdropPage, SettingsPage } from './pages';
 import { LogIn, SeedPhrasePage } from '@/features/auth';
 import TransactionTestPage from './pages/TransactionTestPage';
 import SendPage from './pages/SendPage';
@@ -13,9 +13,10 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/assets" element={<AssetsPage />} />
+        <Route path="/airdrop" element={<AirdropPage />} />
         <Route path="/assets/swap" element={<SwapPage />} />
+        <Route path="/profile" element={<SettingsPage />} />
         <Route path="/seed-phrase" element={<SeedPhrasePage />} />
         <Route path="/test-transactions" element={<TransactionTestPage />} />
         <Route path="/assets/transation" element={<SendPage />} />

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Box, LayoutDashboard, TrendingUp, ArrowLeftRight, Wallet, Menu, X } from 'lucide-react';
+import { Box, LayoutDashboard, TrendingUp, ArrowLeftRight, Wallet, Menu, X, ArrowLeft } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
   { icon: Wallet, label: 'Wallet', path: '/assets' },
   { icon: Wallet, label: 'Swap', path: '/assets/swap' },
   { icon: LayoutDashboard, label: 'Airdrop', path: '/airdrop' },
+  { icon: LayoutDashboard, label: 'Profile', path: '/profile' }
 
 ];
 
@@ -17,12 +18,12 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Button - Only show when closed to prevent overlapping sidebar */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden fixed top-4 left-4 z-[60] w-12 h-12 bg-[#1A2920] rounded-xl flex items-center justify-center text-white border border-white/10"
+        className={`lg:hidden fixed top-3 sm:top-4 left-4 sm:left-6 z-[60] w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1A2920] text-[#8FA396] flex items-center justify-center hover:text-white transition-colors ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
       >
-        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
       {/* Overlay for mobile */}
@@ -79,10 +80,18 @@ const Sidebar = () => {
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
       >
-        {/* Logo */}
-        <div className="p-6 flex items-center gap-2 min-h-[72px]">
-          <Box className="w-8 h-8 text-[#D4FF00] stroke-[2.5] shrink-0" />
-          <span className="text-xl font-extrabold text-white tracking-tight">UWALLET</span>
+        {/* Logo & Close Button */}
+        <div className="p-4 sm:p-6 flex items-center justify-between min-h-[72px]">
+          <div className="flex items-center gap-2">
+            <Box className="w-8 h-8 text-[#D4FF00] stroke-[2.5] shrink-0" />
+            <span className="text-xl font-extrabold text-white tracking-tight">UWALLET</span>
+          </div>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#8FA396] hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Navigation */}

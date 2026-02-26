@@ -75,26 +75,26 @@ const TokenList = () => {
 
   return (
     <div className="bg-[#0C120F] rounded-2xl border border-white/5 overflow-hidden animate-fade-in-up delay-2">
-      <div className="px-4 py-3 sm:p-5 border-b border-white/5 flex justify-between items-center">
-        <h3 className="text-sm sm:text-base font-bold text-white">Active Tokens</h3>
+      <div className="px-3 sm:px-4 py-2 sm:py-3 sm:p-5 border-b border-white/5 flex justify-between items-center">
+        <h3 className="text-xs sm:text-base font-bold text-white">Active Tokens</h3>
         <span className="text-[9px] font-bold text-[#8FA396] uppercase tracking-widest">{tokens.length} assets</span>
       </div>
-      <div className="p-2 sm:p-3 space-y-0.5">
+      <div className="p-1 sm:p-3 space-y-0.5">
         {tokens.map((token) => (
           <div
             key={token.symbol}
-            className="flex items-center justify-between p-3 sm:p-4 hover:bg-white/[0.03] active:bg-white/[0.06] rounded-xl sm:rounded-2xl transition-colors cursor-pointer"
+            className="flex items-center justify-between p-2 sm:p-4 hover:bg-white/[0.03] active:bg-white/[0.06] rounded-xl sm:rounded-2xl transition-colors cursor-pointer"
           >
-            <div className="flex items-center gap-3 min-w-0">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
               {token.icon}
               <div className="min-w-0">
-                <p className="font-bold text-white text-sm sm:text-base">{token.name}</p>
-                <p className="text-[10px] sm:text-xs text-[#8FA396] font-mono">{token.symbol}</p>
+                <p className="font-bold text-white text-xs sm:text-base">{token.name}</p>
+                <p className="text-[9px] sm:text-xs text-[#8FA396] font-mono">{token.symbol}</p>
               </div>
             </div>
             <div className="text-right shrink-0">
-              <p className="font-bold text-white text-sm sm:text-base">{token.balance}</p>
-              <p className={`text-[10px] sm:text-xs ${token.usdColor} font-bold`}>{token.usd}</p>
+              <p className="font-bold text-white text-xs sm:text-base">{token.balance}</p>
+              <p className={`text-[9px] sm:text-xs ${token.usdColor} font-bold`}>{token.usd}</p>
             </div>
           </div>
         ))}
